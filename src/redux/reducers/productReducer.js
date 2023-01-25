@@ -1,7 +1,18 @@
+import { actionType } from "../actionType/actionType";
+
 const initialState = {
-    test: 'TEXT'
+    cart : []
 }
 const productReducer = (state = initialState, action) => {
-    return state;
+   switch (action.type) {
+    case actionType.ADD_TO_CART:
+        return {
+            ...state,
+            cart : [...state.cart, action.payload]
+        }
+   
+    default:
+        return state;
+   }
 }
 export default productReducer;
